@@ -69,6 +69,11 @@ function init() {
 	answerTextBox = document.getElementById("answer");
 	resultsDiv = document.getElementById("results");
 	finalScoreDiv = document.getElementById("final-score");
+
+	startButton.addEventListener("click", function(){
+
+		startGame();
+	});
 }
 
 
@@ -77,7 +82,74 @@ function init() {
 
 //start the game
 
+function startGame (){
 
+	// set the in progres to true
+	inProgress = true;
+
+	// hide the start button
+	startButton.classList.add("hide");
+
+
+	// show the trivia div
+	triviadiv.classList.remove("hide")
+
+	//set the time limit
+	timeLimit = 10;
+	timerDiv.innerHTML = "Time left<br />" + timeLimit;
+
+	//set question number
+
+	questionNum = 0;
+
+	//set the starting score
+	score =0;
+
+	//start the time
+
+	startTimer();
+
+	//display the first question
+	displayQuestion();
+
+
+}
+
+function startTimer() {
+
+	var x = setInterval(function() {
+
+		//suntract 1 from the time limit
+		timeLimit--;
+
+		//update time left
+		timerDiv.innerHTML = "Time left<br/>" + timeLimit;
+
+		if(timeLimit < 0){
+			// stop the number
+			clearInterval(x);
+
+			//display time expired
+			timerDiv.innerHTML = "Time expired"
+
+			//display results
+		}
+
+
+	}, 1000); 
+
+}
+
+
+	function displayQuestion(){
+		//gtet questions from our list and display on page
+		questionDiv.innerHTML = questions[questionNum].question;
+	}
+
+
+	function answerQuestion({
+		//get th epayer's answer form the textbox
+	})
 
 
 
