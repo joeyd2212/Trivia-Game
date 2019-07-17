@@ -1,1 +1,17 @@
+body{
+	margin: 0px auto;
+	text-align: center;
+}
 
+
+#timer, #question, #results {
+	font-size: 2em;
+}
+
+#timer{
+	color: #f00;
+}
+
+.hide{
+	display: none;
+}
