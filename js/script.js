@@ -30,31 +30,55 @@ var score;
 //list of trivia questions
 var questions = [
 {
-	question: "What is 1 + 1? ",
-	correctAnswer: "2"
+	question: "Run Who Run? ",
+	correctAnswer: "forest"
 },
 { 
 	
-	question: " What is 8 + 1 ",
-	correctAnswer: "9"
+	question: "What does General assembly instructors tell you to do, when you ask a question? ",
+	correctAnswer: "google it"
 },
 
 { 
 	
-	question: " What is 10 + 1 ",
-	correctAnswer: "11"
+	question: " Winnie the Pooh's best friend",
+	correctAnswer: "piglet"
 },
 { 
 	
-	question: " What is 21 + 1 ",
-	correctAnswer: "22"
+	question: " Yabba ... doo ",
+	correctAnswer: "dabba"
 },
 { 
 	
-	question: " What is 18 + 1 ",
-	correctAnswer: "19"
+	question: " I'm starting with the man in the .....",
+	correctAnswer: "mirror"
+},
+{ 
+	
+	question: "2019 NBA Champions - city",
+	correctAnswer: "toronto"
+},
+{ 
+	
+	question: "Capital of Deleware",
+	correctAnswer: "dover"
+},
+{ 
+	
+	question: "Our deepest fear is not that we are inadequate, our deepest fear is that...",
+	correctAnswer: "we are powerful beyond measure"
+},
+{ 
+	
+	question: "When in doubt",
+	correctAnswer: "log it out"
+},
+{ 
+	
+	question: "Live, laugh, ....",
+	correctAnswer: "love"
 }
-
 
 ];
 
@@ -108,7 +132,7 @@ function startGame (){
 	triviadiv.classList.remove("hide")
 
 	//set the time limit
-	timeLimit = 30;
+	timeLimit = 60;
 	timerDiv.innerHTML = "Time left<br />" + timeLimit;
 
 	//set question number
