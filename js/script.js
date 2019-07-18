@@ -1,10 +1,12 @@
 let startButton;
+let nextQuestionButton;
+let playAgainButton;
 let triviadiv;
 let timerDiv;
 let questionDiv;
 let resultsDiv;
 let finalScoreDiv;
-let answerTextBox;
+let answerTextbox;
 
 
 //variables
@@ -33,24 +35,24 @@ var questions = [
 },
 { 
 	
-	question: "question ",
-	correctAnswer: "answer"
+	question: " What is 8 + 1 ",
+	correctAnswer: "9"
 },
 
 { 
 	
-	question: "question ",
-	correctAnswer: "answer"
+	question: " What is 10 + 1 ",
+	correctAnswer: "11"
 },
 { 
 	
-	question: "question ",
-	correctAnswer: "answer"
+	question: " What is 21 + 1 ",
+	correctAnswer: "22"
 },
 { 
 	
-	question: "question ",
-	correctAnswer: "answer"
+	question: " What is 18 + 1 ",
+	correctAnswer: "19"
 }
 
 
@@ -63,10 +65,12 @@ var questions = [
 
 function init() {
 	startButton= document.getElementById("start-button");
+	nextQuestionButton= document.getElementById("next-question");
+	playAgainButton= document.getElementById("play-again");
 	triviadiv = document.getElementById("trivia");
 	timerDiv = document.getElementById("timer");
 	questionDiv = document.getElementById("question");
-	answerTextBox = document.getElementById("answer");
+	answerTextbox = document.getElementById("answer");
 	resultsDiv = document.getElementById("results");
 	finalScoreDiv = document.getElementById("final-score");
 
@@ -74,6 +78,15 @@ function init() {
 
 		startGame();
 	});
+	nextQuestionButton.addEventListener("click", function(){
+
+		answerQuestion();
+	});
+	playAgainButton.addEventListener("click", function(){
+
+		playAgain();
+	});
+
 }
 
 
@@ -95,7 +108,7 @@ function startGame (){
 	triviadiv.classList.remove("hide")
 
 	//set the time limit
-	timeLimit = 10;
+	timeLimit = 30;
 	timerDiv.innerHTML = "Time left<br />" + timeLimit;
 
 	//set question number
@@ -103,7 +116,7 @@ function startGame (){
 	questionNum = 0;
 
 	//set the starting score
-	score =0;
+	score = 0;
 
 	//start the time
 
@@ -133,6 +146,11 @@ function startTimer() {
 			timerDiv.innerHTML = "Time expired"
 
 			//display results
+			gameover();
+
+		}else if(!inProgress){
+			//if player finish trivia before Time expires
+			clearInterval(x);
 		}
 
 
@@ -141,19 +159,71 @@ function startTimer() {
 }
 
 
-	function displayQuestion(){
-		//gtet questions from our list and display on page
-		questionDiv.innerHTML = questions[questionNum].question;
-	}
+function displayQuestion(){
+	//gtet questions from our list and display on page
+	questionDiv.innerHTML = questions[questionNum].question;
+}
 
 
-	function answerQuestion({
-		//get th epayer's answer form the textbox
-	})
+function answerQuestion(){
+	//get the player's answer form the textbox
+
+	var playerAnswer = answerTextbox.value;
+
+	//check if the answer is correct
+
+	if( playerAnswer === questions[questionNum].correctAnswer){ 
+		//add 1 point to score
+		score ++;
+
+	};
 
 
+	//advance the question to the next number
+	questionNum ++;
+
+	//clear the answer textbox
+
+	answerTextbox.value = "";
+
+	//check if there are more questions left
+
+    if( questionNum < questions.length){
+
+		//display the next question
+		displayQuestion();
+	}else {
+
+		//display results
+		gameover();
+
+	}	
+
+}
+
+function gameover(){
+	//set the in progress variable to false
+	inProgress = false;
+	//hide the trivia div
+
+	triviadiv.classList.add("hide")
+
+	//unhide the results div
+	resultsDiv.classList.remove("hide")
+
+	//display the final score
+	finalScoreDiv.innerHTML = score + " out of " + questions.length;
+}
 
 
+function playAgain(){
+
+	//unhide the start buttom
+	startButton.classList.remove("hide")
+
+	//hide play again button
+	resultsDiv.classList.add("hide")
+}
 
 
 
