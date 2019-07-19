@@ -39,5 +39,5 @@ Open in the text editor of your choice and begin editing
 If interested in contributing to this repository, after forking and cloning this repository and making edits by adding and committing  locally, do a pull requests so that your submission and be reviewed. If your contribution can contribute in a positive manner to
 
 - "Good links to include"
-* link to bthe project repository
+* link to bthe project repository: https://github.com/joeyd2212/Trivia-Game
 * link to the projects issue tracker
