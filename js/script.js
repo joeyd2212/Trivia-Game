@@ -30,19 +30,19 @@ var score;
 //list of trivia questions
 var questions = [
 {
-	question: "Run Who Run? ",
-	correctAnswer: "forest"
+	question: "Run 'Who' Run? ",
+	correctAnswer: "forrest"
 },
 { 
 	
-	question: "What does General assembly instructors tell you to do, when you ask a question? ",
-	correctAnswer: "google it"
+	question: "Variable that can't be changed ",
+	correctAnswer: "const"
 },
 
 { 
 	
-	question: " Winnie the Pooh's best friend",
-	correctAnswer: "piglet"
+	question: " Mickey and .. mouse",
+	correctAnswer: "minnie"
 },
 { 
 	
@@ -61,13 +61,13 @@ var questions = [
 },
 { 
 	
-	question: "Capital of Deleware",
-	correctAnswer: "dover"
+	question: "Capital of Illinois",
+	correctAnswer: "Springfield"
 },
 { 
 	
-	question: "Our deepest fear is not that we are inadequate, our deepest fear is that...",
-	correctAnswer: "we are powerful beyond measure"
+	question: "Silly rabbits, trix are for ....",
+	correctAnswer: "kids"
 },
 { 
 	
@@ -76,8 +76,28 @@ var questions = [
 },
 { 
 	
-	question: "Live, laugh, ....",
+	question: "Live, laugh, ..",
 	correctAnswer: "love"
+},
+{ 
+	
+	question: "Frosted Flakes- they're more than good....",
+	correctAnswer: "they're great"
+},
+{ 
+	
+	question: "Hello from the .. ..",
+	correctAnswer: "other side"
+},
+{ 
+	
+	question: "Just call my name and I'll be",
+	correctAnswer: "there"
+},
+{ 
+	
+	question: "I'm gonna take my horse to the .. .. ..",
+	correctAnswer: "old town road"
 }
 
 ];
@@ -121,7 +141,7 @@ function init() {
 
 function startGame (){
 
-	// set the in progres to true
+	// set the in progress to true
 	inProgress = true;
 
 	// hide the start button
@@ -132,7 +152,7 @@ function startGame (){
 	triviadiv.classList.remove("hide")
 
 	//set the time limit
-	timeLimit = 60;
+	timeLimit = 70;
 	timerDiv.innerHTML = "Time left<br />" + timeLimit;
 
 	//set question number
